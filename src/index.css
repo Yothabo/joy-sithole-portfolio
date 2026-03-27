@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Montserrat:wght@300;400;500;600;700&family=Georgia&family=Russo+One&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply text-primary-600 antialiased bg-white;
+    font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+    font-weight: 400;
+  }
+
+  h1, h2, h3, h4, h5, h6, button, .btn-primary, .btn-outline {
+    font-family: 'Roboto', system-ui, sans-serif;
+    font-weight: 700;
+  }
+
+  /* Number styling */
+  .number {
+    font-family: 'Georgia', serif;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-primary-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary-500/50 rounded-full hover:bg-primary-500/70 transition-colors;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .heading-lg {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-primary-600;
+  }
+
+  .heading-md {
+    @apply text-3xl md:text-4xl font-semibold text-primary-600;
+  }
+
+  .heading-sm {
+    @apply text-2xl md:text-3xl font-semibold text-primary-600;
+  }
+
+  .btn-primary {
+    @apply bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold
+           hover:bg-primary-700 transition-colors duration-300;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary-600 text-primary-600 px-6 py-3 rounded-lg font-semibold
+           hover:bg-primary-600 hover:text-white transition-all duration-300;
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  .btn-primary, .btn-outline {
+    @apply min-h-[48px] text-base;
+  }
+
+  .container-custom {
+    @apply px-6;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better tap highlights */
+button, a {
+  -webkit-tap-highlight-color: rgba(145, 95, 109, 0.1);
+}
+
+/* Screen Reader Only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Prevent viewport jumps on mobile */
+html {
+  height: -webkit-fill-available;
+}
+
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+/* Ensure fixed elements stay anchored */
+.fixed {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Hide scrollbar but keep functionality */
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* Dark mode styles */
+.dark body {
+  background-color: #7A4F5A;
+  color: white;
+}
+
+.dark .bg-white {
+  background-color: #7A4F5A;
+}
+
+.dark .text-primary-600,
+.dark .text-primary-500,
+.dark .text-primary-400,
+.dark .text-primary-300 {
+  color: white;
+}
+
+.dark .text-primary-600\/70,
+.dark .text-primary-600\/80,
+.dark .text-primary-600\/90 {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.dark .border-primary-100,
+.dark .border-primary-200 {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.dark .bg-primary-50,
+.dark .bg-primary-100 {
+  background-color: #623F48;
+}
+
+.dark .btn-primary {
+  background-color: white;
+  color: #7A4F5A;
+}
+
+.dark .btn-primary:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.dark .btn-outline {
+  border-color: white;
+  color: white;
+}
+
+.dark .btn-outline:hover {
+  background-color: white;
+  color: #7A4F5A;
+}
+
+.dark .fixed {
+  color: white;
+}
+
+.dark .text-primary-600\/40,
+.dark .text-primary-600\/30,
+.dark .text-primary-600\/20 {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Hero vertical text */
+.hero-vertical-text {
+  color: rgba(145, 95, 109, 0.35);
+}
+
+.dark .hero-vertical-text {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+/* Testimonial dots */
+.testimonial-dot {
+  background-color: #D19FAB;
+}
+
+.dark .testimonial-dot {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.testimonial-dot.active {
+  width: 1rem;
+  background-color: #915F6D;
+}
+
+.dark .testimonial-dot.active {
+  background-color: white;
+}
+
+.testimonial-dot:hover:not(.active) {
+  background-color: #BA6F81;
+}
+
+.dark .testimonial-dot:hover:not(.active) {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Remove black background from dark mode images */
+.dark-image {
+  filter: brightness(0) invert(1);
+}
